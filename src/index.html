@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Morpion</title>
+        <script src="morpion.js" defer></script>
+        <link rel="stylesheet" href="assets/morpion.css"/>
+    </head>
+    <body>
+        <div id='Titre'>
+            <h1>Jeu du Morpion</h1>
+            <h2>Tour de <span id="tourJoueur"></span></h2>
+        </div>
+        <!--<div class="board">
+            <div class="grid">
+                <div class="cell"><div class="symbol"></div></div>
+                <div class="cell"><div class="symbol"></div></div>
+                <div class="cell"><div class="symbol"></div></div>
+                <div class="cell"><div class="symbol"></div></div>
+                <div class="cell"><div class="symbol"></div></div>
+                <div class="cell"><div class="symbol"></div></div>
+                <div class="cell"><div class="symbol"></div></div>
+                <div class="cell"><div class="symbol"></div></div>
+                <div class="cell"><div class="symbol"></div></div>
+            </div>
+        </div>-->
+
+        <div id='morpion'></div>
+
+      
+        <div id="StatutJeu">
+            <table id="recapitulatif">
+                    <thead>
+                        <tr>
+                            <th id="nomJoueur1">Joueur 1</th>
+                            <th>Egalité</th>
+                            <th id="nomJoueur2">Joueur 2</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td id="pointJoueur1">0</td>
+                            <td id="pointEgalite">0</td>
+                            <td id="pointJoueur2">0</td>
+                        </tr>
+                    </tbody>
+            </table> <!-- Fin ID recapitulatif -->
+            <button id="newGame">Démarrer une <br/> nouvelle partie</button>
+        </div>
+
+    </body>
+</html>
