@@ -3,8 +3,7 @@
 import {Board} from './board';
 
 new Board(document.querySelector('#morpion'));
-//let test = new Board(document.querySelector('#morpion'));
-//console.log(test);
+
 // saisie du nom des joueurs par l'utilisateur
 function choixNomJoueur() {
     let nom1 = prompt("Veuillez entrer le nom du joueur 1 :");

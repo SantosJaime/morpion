@@ -99,16 +99,12 @@ export class Game {
     switchPlayer() {
         if (this.movesCount === 9) {
             this.terminate() ;
-            confirm("Égalité. On recommence?");
-            pointEgalite++;
-            // affiche le score
-		    pointEgaliteHTML.textContent = pointEgalite;
+            
             return ;
         }
 
         switch (this.currentPlayer) {
             case PLAYER1 :
-                    tourJoueur= "Tour de "+this.nom1+"(X)";
                 this.currentPlayer = PLAYER2 ;
                 break ;
 

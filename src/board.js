@@ -38,12 +38,7 @@ export class Board {
         this.morpion = new Game();
 
         document.querySelector("#recommencer").onclick=() => {
-            this.morpion = new Game();
-            for (let clean of this.cells){
-                clean.classList.remove('player1');
-                clean.classList.remove('player2');
-                clean.classList.remove('win');
-            }
+            this.reset();
         }
     
             for (let index of this.cells.keys()) {
@@ -51,6 +46,15 @@ export class Board {
             }                
     }
 
+
+        reset(){
+            this.morpion = new Game();
+                for (let clean of this.cells){
+                    clean.classList.remove('player1');
+                    clean.classList.remove('player2');
+                    clean.classList.remove('win');
+                }
+        }
     /*choixNomJoueur() {
         this.nom1 = prompt("Veuillez entrer le nom du joueur 1 :");
         if (this.nom1 != null) {
@@ -89,8 +93,19 @@ export class Board {
 
         let winPattern = this.morpion.checkWin();
         if ( !winPattern) {
+        
             // On indique que c’est l’autre joueur qui joue à présent.
             this.morpion.switchPlayer();
+            if (this.morpion.isTerminated()){
+                if (confirm("Égalité. On recommence?")) {
+                    this.reset();
+                }   
+
+            pointEgalite++;
+            // affiche le score
+            pointEgaliteHTML.textContent = pointEgalite;
+            }   
+
         } else {
             this.morpion.terminate() ;
             this.highlight(winPattern);
@@ -109,3 +124,10 @@ export class Board {
         }
     }
 }
+
+//stocker score à égalité
+let pointEgalite = 0;
+// récupérer l'affichage des scores
+let pointJoueur1HTML = document.getElementById('pointJoueur1');
+let pointJoueur2HTML = document.getElementById('pointJoueur2');
+let pointEgaliteHTML = document.getElementById('pointEgalite');
