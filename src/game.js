@@ -1,27 +1,6 @@
 export const PLAYER1 = Symbol('player 1');
 export const PLAYER2 = Symbol('player 2');
 
-// saisie du nom des joueurs par l'utilisateur
-
-function choixNomJoueur(){
-    if(PLAYER1.nom == null){
-        PLAYER1.nom = window.prompt('Veuillez entrer le nom du joueur 1 :');
-    }
-    PLAYER1.nom += ' (X)';
-
-    if(PLAYER2.nom == null){
-        PLAYER2.nom = window.prompt('Veuillez entrer le nom du joueur 2 :');
-    }
-    PLAYER2.nom += ' (O)';
-	
-	// affichage du score à 0 pour les joueurs
-	PLAYER1HTML.textContent = PLAYER1.nom;
-	PLAYER2HTML.textContent = PLAYER2.nom;
-
-	tourJoueur.textContent = PLAYER1.nom;
-}
-
-
 /**
  * Représente une partie de Morpion
  */
@@ -91,7 +70,7 @@ export class Game {
                     break ;
                 }
             }
-            if (match) {
+            if (match) { 
                 return pattern ;
             }
         }
@@ -103,6 +82,7 @@ export class Game {
     */
     terminate() {
         this.currentPlayer = null ;
+        
         }
         /**
         * Vérifie si la partie a été marquée comme terminée.
@@ -119,11 +99,16 @@ export class Game {
     switchPlayer() {
         if (this.movesCount === 9) {
             this.terminate() ;
+            confirm("Égalité. On recommence?");
+            pointEgalite++;
+            // affiche le score
+		    pointEgaliteHTML.textContent = pointEgalite;
             return ;
         }
 
         switch (this.currentPlayer) {
             case PLAYER1 :
+                    tourJoueur= "Tour de "+this.nom1+"(X)";
                 this.currentPlayer = PLAYER2 ;
                 break ;
 
@@ -136,20 +121,12 @@ export class Game {
         }
     }
 
-    //var afficheur = new Afficheur(document.querySelector("#StatutJeu"));
-    //afficheur.sendMessage("Le jeu peut commencer ! <br /> Joueur " + currentPlayer + " c'est votre tour.");
 
 }
 
-// Démarrer une nouvelle partie, demander les paramètres de jeu, score à 0
-function onClickNew(){
-	
-}
-
-
-//nouvelle partie
-choixNomJoueur();
-// stocker le bouton nouvelle partie
-let btnNouveau = document.getElementById('newGame');
-// ajout des écouteurs sur le bouton
-btnNouveau.addEventListener('click', onClickNew);
+//stocker score à égalité
+let pointEgalite = 0;
+// récupérer l'affichage des scores
+let pointJoueur1HTML = document.getElementById('pointJoueur1');
+let pointJoueur2HTML = document.getElementById('pointJoueur2');
+let pointEgaliteHTML = document.getElementById('pointEgalite');

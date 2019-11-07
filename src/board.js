@@ -36,10 +36,33 @@ export class Board {
         }
 
         this.morpion = new Game();
+
+        document.querySelector("#recommencer").onclick=() => {
+            this.morpion = new Game();
+            for (let clean of this.cells){
+                clean.classList.remove('player1');
+                clean.classList.remove('player2');
+                clean.classList.remove('win');
+            }
+        }
     
             for (let index of this.cells.keys()) {
                 this.cells[index].onclick =() => this.onClickCell(index);
             }                
+    }
+
+    /*choixNomJoueur() {
+        this.nom1 = prompt("Veuillez entrer le nom du joueur 1 :");
+        if (this.nom1 != null) {
+          document.getElementById("nomJoueur1").innerHTML =
+          "Joueur 1 : " + this.nom1 + " (X)";
+        }
+        
+        this.nom2 = prompt("Veuillez entrer le nom du joueur 2 :");
+        if (this.nom2 != null) {
+          document.getElementById("nomJoueur2").innerHTML =
+          "Joueur 2 : " + this.nom2 + " (O)";
+        }
     }
 
     /**

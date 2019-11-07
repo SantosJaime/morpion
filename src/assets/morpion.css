@@ -29,7 +29,7 @@
  
 .cell.win {
     background-size: 110%;
-    background-image: url(https://image.freepik.com/vecteurs-libre/effet-particules-explosion-scintillante_23-2148299078.jpg);
+    background-image: url(https://image.freepik.com/photos-gratuite/feux-artifices-dans-fond-du-ciel-sombre_1373-262.jpg);
 }
 
 .symbol {
@@ -77,7 +77,7 @@
     text-align: center;
     margin: 1em auto 0.5em;
     font-family: 'Roboto', sans-serif;
-    font-size: 1.5em;
+
 
     td{
         padding: 0.7em 2em;
