@@ -40,13 +40,34 @@ export class Board {
         document.querySelector("#recommencer").onclick=() => {
             this.reset();
         }
-    
+
+        //selection et stockage du nom des joueurs
+        this.nom = [];
+            // saisie du nom des joueurs par l'utilisateur
+            this.nom ["player 1"] = window.prompt("player1: Quel est votre nom?");
+            this.nom ["player 2"] = window.prompt("player2: Quel est votre nom?");   
+
+            document.getElementById("nomJoueur1").innerHTML =
+            "Joueur 1 : " + this.nom ["player 1"]  + " (X)";   
+
+            document.getElementById("nomJoueur2").innerHTML =
+            "Joueur 2 : " + this.nom ["player 2"]  + " (O)"; 
+            //tableau avec le nom des joueurs
+            this.playerNom = this.nom[this.morpion.currentPlayer.description];
+            if(this.playerNom === null){
+                this.playerNom = this.morpion.currentPlayer.description;
+            }
+
+            document.getElementById("tourJoueur").innerHTML= this.playerNom;
+
+            //change l'affichage du joueur en cours
             for (let index of this.cells.keys()) {
-                this.cells[index].onclick =() => this.onClickCell(index);
-            }                
+            this.cells[index].onclick =() => this.onClickCell(index);
+            }           
+        
     }
 
-
+        // methode de remise a 0
         reset(){
             this.morpion = new Game();
                 for (let clean of this.cells){
@@ -55,19 +76,6 @@ export class Board {
                     clean.classList.remove('win');
                 }
         }
-    /*choixNomJoueur() {
-        this.nom1 = prompt("Veuillez entrer le nom du joueur 1 :");
-        if (this.nom1 != null) {
-          document.getElementById("nomJoueur1").innerHTML =
-          "Joueur 1 : " + this.nom1 + " (X)";
-        }
-        
-        this.nom2 = prompt("Veuillez entrer le nom du joueur 2 :");
-        if (this.nom2 != null) {
-          document.getElementById("nomJoueur2").innerHTML =
-          "Joueur 2 : " + this.nom2 + " (O)";
-        }
-    }
 
     /**
     * Gère les cliques des joueurs sur les cases.
@@ -76,7 +84,9 @@ export class Board {
     Indice de la case cliquée
     */
     onClickCell(index) {
-        const cell = this.cells[index];
+        
+       
+      const cell = this.cells[index];
 
         // Si le coup n’est pas possible, on quitte la fonction sans rien faire de plus.
         if ( !this.morpion.move(index)) {
@@ -96,6 +106,14 @@ export class Board {
         
             // On indique que c’est l’autre joueur qui joue à présent.
             this.morpion.switchPlayer();
+            if(this.morpion.currentPlayer != null){
+            this.playerNom = this.nom[this.morpion.currentPlayer.description];
+                if(this.playerNom === null){
+                    this.playerNom = this.morpion.currentPlayer.description;
+                }
+            // affiche le joueur en cours
+            document.getElementById("tourJoueur").innerHTML= this.playerNom;
+            }
             if (this.morpion.isTerminated()){
                 if (confirm("Égalité. On recommence?")) {
                     this.reset();

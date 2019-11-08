@@ -5,7 +5,7 @@ import {Board} from './board';
 new Board(document.querySelector('#morpion'));
 
 // saisie du nom des joueurs par l'utilisateur
-function choixNomJoueur() {
+/*function choixNomJoueur() {
     let nom1 = prompt("Veuillez entrer le nom du joueur 1 :");
     if (nom1 != null) {
       document.getElementById("nomJoueur1").innerHTML =
@@ -19,7 +19,7 @@ function choixNomJoueur() {
     }
   }
 
-  choixNomJoueur();
+  choixNomJoueur();*/
 
   function onClickNew(){
     return document.location.reload();
@@ -42,8 +42,7 @@ let btnRecommencer = document.getElementById('recommencer');
 // récupérer affichage nom tour joueur
 let tourJoueur = document.getElementById('tourJoueur');
 
-// ajout des écouteurs sur les boutons
-//nouvelle partie
+// ajout des écouteurs sur le bouton nouvelle partie
 btnNouveau.addEventListener('click', onClickNew);
 //btnRecommencer.addEventListener('click', onClickRecommencer);
 //btnReinitialiser.addEventListener('click', onClickReinitialiser);

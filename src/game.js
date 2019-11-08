@@ -120,9 +120,3 @@ export class Game {
 
 }
 
-//stocker score à égalité
-let pointEgalite = 0;
-// récupérer l'affichage des scores
-let pointJoueur1HTML = document.getElementById('pointJoueur1');
-let pointJoueur2HTML = document.getElementById('pointJoueur2');
-let pointEgaliteHTML = document.getElementById('pointEgalite');
