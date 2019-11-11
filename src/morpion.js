@@ -4,23 +4,6 @@ import {Board} from './board';
 
 new Board(document.querySelector('#morpion'));
 
-// saisie du nom des joueurs par l'utilisateur
-/*function choixNomJoueur() {
-    let nom1 = prompt("Veuillez entrer le nom du joueur 1 :");
-    if (nom1 != null) {
-      document.getElementById("nomJoueur1").innerHTML =
-      "Joueur 1 : " + nom1 + " (X)";
-    }
-    
-    let nom2 = prompt("Veuillez entrer le nom du joueur 2 :");
-    if (nom2 != null) {
-      document.getElementById("nomJoueur2").innerHTML =
-      "Joueur 2 : " + nom2 + " (O)";
-    }
-  }
-
-  choixNomJoueur();*/
-
   function onClickNew(){
     return document.location.reload();
 }

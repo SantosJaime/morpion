@@ -1,0 +1,16 @@
+image: node:lts-alpine
+
+before_script:
+  - yarn install
+
+pages:
+  script:
+    - yarn run pages
+  artifacts:
+    paths:
+      - public
+  cache:
+    paths:
+      - node_modules
+  only:
+    - master

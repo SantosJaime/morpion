@@ -103,6 +103,7 @@ export class Board {
 
         let winPattern = this.morpion.checkWin();
         if ( !winPattern) {
+
         
             // On indique que c’est l’autre joueur qui joue à présent.
             this.morpion.switchPlayer();
@@ -120,7 +121,7 @@ export class Board {
                 }   
 
             pointEgalite++;
-            // affiche le score
+            // affiche le score Egalité
             pointEgaliteHTML.textContent = pointEgalite;
             }   
 
